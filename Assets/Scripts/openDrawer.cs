@@ -2,7 +2,13 @@ using UnityEngine;
 
 public class openDrawer : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    [SerializeField] GameObject drawer;
+    Animator animator;
+
+    void Start()
+    {
+        animator = drawer.GetComponent<Animator>();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0)){
@@ -15,6 +21,7 @@ public class openDrawer : MonoBehaviour
                 {
                     if (animator.GetBool("openDrawer") == false)
                     {
+                        drawer.GetComponent<AudioSource>().Play();
                         animator.SetBool("openDrawer", true);
                     }
                 }
