@@ -9,7 +9,6 @@ public class IRsensor : MonoBehaviour
     TextMeshPro textMesh;
     Animator drawerAnim;
     float timer = 0f;
-    bool isDeskApproached = false;
 
     private void Start()
     {
@@ -29,16 +28,11 @@ public class IRsensor : MonoBehaviour
             {
                 Count();
                 lightBulb.GetComponent<Light>().enabled = true;
-                
-                
-                if (!isDeskApproached) 
+
+                if (drawerAnim.GetBool("openDrawer") == false)
                 {
-                    if (drawerAnim.GetBool("openDrawer") == false)
-                    {
-                        drawer.GetComponent<AudioSource>().Play();
-                        drawerAnim.SetBool("openDrawer", true);
-                        isDeskApproached = true;
-                    } 
+                    drawer.GetComponent<AudioSource>().Play();
+                    drawerAnim.SetBool("openDrawer", true);;
                 } 
             }
         }
