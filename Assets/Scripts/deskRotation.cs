@@ -22,8 +22,8 @@ public class deskRotation : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             // Pan the camera with the left mouse button
-            float panX = Input.GetAxis("Mouse X") * 0.5f;
-            float panY = Input.GetAxis("Mouse Y") * 0.5f;
+            float panX = Input.GetAxis("Mouse X") * 0.3f;
+            float panY = Input.GetAxis("Mouse Y") * 0.3f;
             transform.Translate(panX, panY, 0, Space.Self);
         }
     }
